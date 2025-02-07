@@ -22,6 +22,7 @@ jobs:
           hugo-version: 'latest'
       - name: Build
         run: hugo --minify
+      - name: Log
         run: cat ./public/index.html
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
