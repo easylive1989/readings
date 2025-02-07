@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Posts on Readings</title>
+    <link>http://localhost:1313/readings/post/</link>
+    <description>Recent content in Posts on Readings</description>
+    <generator>Hugo -- 0.143.1</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 07 Feb 2025 15:33:58 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/readings/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bounded Context</title>
+      <link>http://localhost:1313/readings/post/bounded-context/</link>
+      <pubDate>Fri, 07 Feb 2025 15:33:58 +0800</pubDate>
+      <guid>http://localhost:1313/readings/post/bounded-context/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://martinfowler.com/bliki/BoundedContext.html&#34;&gt;Link&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Bounded Context is a central pattern in Domain-Driven Design. It is the focus of DDD&amp;rsquo;s strategic design section which is all about dealing with large models and teams. DDD deals with large models by dividing them into different Bounded Contexts and being explicit about their interrelationships.&lt;/p&gt;
+&lt;p&gt;限界上下文（Bounded Context）是領域驅動設計（Domain-Driven Design, DDD）的核心模式。它是 DDD 戰略設計部分的焦點，主要處理大型模型和團隊。DDD 通過將大型模型劃分為不同的限界上下文，並明確定義它們之間的相互關係，來管理這些龐大的模型。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://martinfowler.com/bliki/images/boundedContext/sketch.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;DDD is about designing software based on models of the underlying domain. A model acts as a &lt;a href=&#34;https://martinfowler.com/bliki/UbiquitousLanguage.html&#34;&gt;UbiquitousLanguage&lt;/a&gt; to help communication between software developers and domain experts. It also acts as the conceptual foundation for the design of the software itself - how it&amp;rsquo;s broken down into objects or functions. To be effective, a model needs to be unified - that is to be internally consistent so that there are no contradictions within it.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>My First Post</title>
+      <link>http://localhost:1313/readings/post/my-first-post/</link>
+      <pubDate>Fri, 07 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/readings/post/my-first-post/</guid>
+      <description>&lt;p&gt;這是我的第一篇文章內容&amp;hellip;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,3 +1,8 @@
 baseURL = 'https://easylive1989.github.io/readings'
 title = 'Readings'
 theme = 'PaperMod'
+sectionPagesMenu = 'main'
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
