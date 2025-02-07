@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/readings/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=readings/livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Bounded Context | Readings</title>
+<meta name="keywords" content="Martin Fowler">
+<meta name="description" content="Link
+Bounded Context is a central pattern in Domain-Driven Design. It is the focus of DDD&rsquo;s strategic design section which is all about dealing with large models and teams. DDD deals with large models by dividing them into different Bounded Contexts and being explicit about their interrelationships.
+限界上下文（Bounded Context）是領域驅動設計（Domain-Driven Design, DDD）的核心模式。它是 DDD 戰略設計部分的焦點，主要處理大型模型和團隊。DDD 通過將大型模型劃分為不同的限界上下文，並明確定義它們之間的相互關係，來管理這些龐大的模型。
+
+DDD is about designing software based on models of the underlying domain. A model acts as a UbiquitousLanguage to help communication between software developers and domain experts. It also acts as the conceptual foundation for the design of the software itself - how it&rsquo;s broken down into objects or functions. To be effective, a model needs to be unified - that is to be internally consistent so that there are no contradictions within it.">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/readings/post/bounded-context/">
+<link crossorigin="anonymous" href="/readings/assets/css/stylesheet.45e028aa8ce0961349adf411b013ee39406be2c0bc80d4ea3fc04555f7f4611a.css" integrity="sha256-ReAoqozglhNJrfQRsBPuOUBr4sC8gNTqP8BFVff0YRo=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/readings/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/readings/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/readings/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/readings/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/readings/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/readings/post/bounded-context/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/readings/" accesskey="h" title="Readings (Alt + H)">Readings</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/readings/post/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Bounded Context
+    </h1>
+    <div class="post-meta"><span title='2025-02-07 15:33:58 +0800 CST'>February 7, 2025</span>
+
+</div>
+  </header> 
+  <div class="post-content"><p><a href="https://martinfowler.com/bliki/BoundedContext.html">Link</a></p>
+<p>Bounded Context is a central pattern in Domain-Driven Design. It is the focus of DDD&rsquo;s strategic design section which is all about dealing with large models and teams. DDD deals with large models by dividing them into different Bounded Contexts and being explicit about their interrelationships.</p>
+<p>限界上下文（Bounded Context）是領域驅動設計（Domain-Driven Design, DDD）的核心模式。它是 DDD 戰略設計部分的焦點，主要處理大型模型和團隊。DDD 通過將大型模型劃分為不同的限界上下文，並明確定義它們之間的相互關係，來管理這些龐大的模型。</p>
+<p><img loading="lazy" src="https://martinfowler.com/bliki/images/boundedContext/sketch.png"></p>
+<p>DDD is about designing software based on models of the underlying domain. A model acts as a <a href="https://martinfowler.com/bliki/UbiquitousLanguage.html">UbiquitousLanguage</a> to help communication between software developers and domain experts. It also acts as the conceptual foundation for the design of the software itself - how it&rsquo;s broken down into objects or functions. To be effective, a model needs to be unified - that is to be internally consistent so that there are no contradictions within it.</p>
+<p>DDD 是基於底層領域模型來設計軟體。一個模型充當了通用語言（Ubiquitous Language），幫助軟體開發者和領域專家之間進行溝通。它同時也作為軟體設計本身的概念基礎 - 即如何將軟體分解為物件或函式。為了有效，模型需要保持統一 - 也就是在內部保持一致，確保模型內部沒有矛盾。</p>
+<p>As you try to model a larger domain, it gets progressively harder to build a single unified model. Different groups of people will use subtly different vocabularies in different parts of a large organization. The precision of modeling rapidly runs into this, often leading to a lot of confusion. Typically this confusion focuses on the central concepts of the domain. Early in my career I worked with a electricity utility - here the word “meter” meant subtly different things to different parts of the organization: was it the connection between the grid and a location, the grid and a customer, the physical meter itself (which could be replaced if faulty). These subtle <a href="http://en.wikipedia.org/wiki/Polysemy">polysemes</a> could be smoothed over in conversation but not in the precise world of computers. Time and time again I see this confusion recur with polysemes like “Customer” and “Product”.</p>
+<p>隨著您嘗試對更大的領域進行建模，建立一個統一的模型變得越來越困難。在大型組織的不同部門中，人們會使用微妙不同的詞彙。建模的精確性很快就會遇到這種情況，常常導致大量混淆。通常這種混淆集中在領域的核心概念上。在我職業生涯的早期，我曾與一家電力公司合作 - 在那裡，&ldquo;電表&quot;一詞在組織的不同部門中有微妙的不同含義：它是指電網和位置之間的連接，還是電網和客戶之間的連接，又或是實體電表本身（可能會在故障時被更換）。這些微妙的多義詞在交談中可以被平滑處理，但在電腦的精確世界中卻無法如此。我一再看到這種混淆重複出現，尤其是像&quot;客戶&quot;和&quot;產品&quot;這樣的多義詞。</p>
+<p>In those younger days we were advised to build a unified model of the entire business, but DDD recognizes that we&rsquo;ve learned that “total unification of the domain model for a large system will not be feasible or cost-effective” 1. So instead DDD divides up a large system into Bounded Contexts, each of which can have a unified model - essentially a way of structuring <a href="https://martinfowler.com/bliki/MultipleCanonicalModels.html">MultipleCanonicalModels</a>.</p>
+<p>在早期，我們曾被建議為整個業務建立一個統一的模型，但 DDD 認識到我們已經明白「對於大型系統，對整個領域模型進行全面統一是不可行或不符合成本效益的」。因此，DDD 將大型系統劃分為限界上下文，每個上下文都可以有一個統一的模型 - 本質上是一種構建多重標準模型的方法。</p>
+<p>Bounded Contexts have both unrelated concepts (such as a support ticket only existing in a customer support context) but also share concepts (such as products and customers). Different contexts may have completely different models of common concepts with mechanisms to map between these polysemic concepts for integration. Several DDD patterns explore alternative relationships between contexts.</p>
+<p>限界上下文既包含不相關的概念（例如支持工單僅存在於客戶支持上下文中），也包含共享的概念（如產品和客戶）。不同的上下文可能對共同概念有完全不同的模型，並通過機制在這些多義概念之間進行映射以實現整合。多個 DDD 模式探索了上下文之間的各種替代關係。</p>
+<p>Various factors draw boundaries between contexts. Usually the dominant one is human culture, since models act as Ubiquitous Language, you need a different model when the language changes. You also find multiple contexts within the same domain context, such as the separation between in-memory and relational database models in a single application. This boundary is set by the different way we represent models.</p>
+<p>各種因素會在不同的情境之間劃分界限。通常，主導因素是人類文化。由於模型充當了通用語言（Ubiquitous Language）的角色，因此當語言發生變化時，就需要使用不同的模型。在相同的領域情境中，你也會發現多個不同的子情境，例如在同一個應用程式中，內存模型和關聯式資料庫模型之間的分隔。這種界限是由我們表示模型的方式不同而決定的。</p>
+<p>DDD&rsquo;s strategic design goes on to describe a variety of ways that you have relationships between Bounded Contexts. It&rsquo;s usually worthwhile to depict these using a context map.</p>
+<p>DDD 的策略設計進一步描述了有界上下文（Bounded Context）之間各種關係的方式。通常，使用上下文地圖（Context Map）來呈現這些關係是值得的。</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/readings/tags/martin-fowler/">Martin Fowler</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="http://localhost:1313/readings/">Readings</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
