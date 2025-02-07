@@ -35,7 +35,7 @@ Another great advantage the test-first approach provides us is the ability to sk
 
 On the other hand, the code-first approach is helpful when you need to investigate some new areas in your application. Also, the TDD process is often redundant when building a prototype. Most likely, such prototype will be deleted along with the tests covering it.
 
-另一方面，當你需要探索應用程式中的某些新領域時，先寫程式碼的方法會更有幫助。此外，在建立原型時，TDD 的流程往往是多餘的。大多數情況下，這種原型以及覆蓋它的測試可能最終都會被刪除。 ^vladimirtddbestpractice1
+另一方面，當你需要探索應用程式中的某些新領域時，先寫程式碼的方法會更有幫助。此外，在建立原型時，TDD 的流程往往是多餘的。大多數情況下，這種原型以及覆蓋它的測試可能最終都會被刪除。
 
 I believe TDD does a great job when you know the complete set of requirements for the code you are going to write. In such cases, the test-first approach would indeed be the best choice.
 
