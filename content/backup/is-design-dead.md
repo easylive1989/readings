@@ -329,7 +329,7 @@ So the advice for on-going documentation runs from these observed problems:
 The last aspect of using UML is for documentation in a handover situation, such as when one group hands over to another. Here the XP point is that producing documentation is a [user story](https://martinfowler.com/bliki/UserStory.html) like any other, and thus its business value is determined by the customer. Again the UML is useful here, providing the diagrams are selective to help communication. Remember that the code is the repository of detailed information, the diagrams act to summarize and highlight important issues.
 
 使用 UML 的最後一個方面是用於交接情境，例如一個團隊將工作移交給另一個團隊。在這裡，XP 的觀點是，撰寫文檔是一種[使用者故事](https://martinfowler.com/bliki/UserStory.html)，其商業價值由客戶決定。同樣地，UML 在這種情況下是有用的，但前提是圖表具有選擇性，能夠幫助溝通。記住，程式碼是詳細資訊的存放庫，而圖表的作用則是摘要和突出重要的問題。
-## On Metaphor ^martinIsDesignDeadMetaphor
+## On Metaphor
 
 Okay I might as well say it publicly - I still haven't got the hang of this metaphor thing. I saw it work, and work well on the C3 project, but it doesn't mean I have any idea how to do it, let alone how to explain how to do it.
 
