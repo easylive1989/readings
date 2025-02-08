@@ -3,6 +3,9 @@ date: '2025-02-08T09:02:27+08:00'
 title: 'What if We Rotate Pair Every Day?'
 tags: ["Martin Fowler"]
 ---
+
+[Source](https://martinfowler.com/articles/rotate-pairs-experiment.html)
+
 #### Unveiling the benefits of frequent pair rotation through an experiment
 
 #### 透過實驗揭示頻繁配對輪換的優勢
