@@ -1,6 +1,6 @@
 ---
 date: '2025-02-08T21:36:02+08:00'
-title: 'Cqrs'
+title: 'CQRS'
 tags: ["Martin Fowler"]
 ---
 
