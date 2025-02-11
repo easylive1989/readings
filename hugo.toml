@@ -2,6 +2,8 @@ baseURL = 'https://easylive1989.github.io/readings'
 title = 'Readings'
 theme = 'PaperMod'
 sectionPagesMenu = 'main'
+enableRobotsTXT = true
+
 
 [taxonomies]
   tag = "tags"
