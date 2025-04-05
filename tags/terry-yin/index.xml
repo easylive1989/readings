@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Terry Yin on Readings</title><link>https://easylive1989.github.io/readings/tags/terry-yin/</link><description>Recent content in Terry Yin on Readings</description><generator>Hugo -- 0.145.0</generator><language>en</language><lastBuildDate>Sat, 05 Apr 2025 23:08:11 +0800</lastBuildDate><atom:link href="https://easylive1989.github.io/readings/tags/terry-yin/index.xml" rel="self" type="application/rss+xml"/><item><title>Oh my bad boolean</title><link>https://easylive1989.github.io/readings/backup/oh-my-bad-boolean/</link><pubDate>Sat, 05 Apr 2025 23:08:11 +0800</pubDate><guid>https://easylive1989.github.io/readings/backup/oh-my-bad-boolean/</guid><description>&lt;h2 id="why-are-boolean-parameters-bad">&lt;a href="https://www.linkedin.com/posts/terryyin_coding-softwaredevelopment-boolean-activity-7058616373849034752-_wMc/">Why are boolean parameters bad?&lt;/a>&lt;/h2>
+&lt;p>Hello, welcome to the OhMyBat Boolean series.&lt;/p>
+&lt;p>In my game program, there is a powerful tool called a blaster.
+在我的遊戲程式中，有一個強大的工具叫做爆破槍。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-java" data-lang="java">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">Blaster&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> action(isLoad) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span>(isLoad) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">this&lt;/span>.&lt;span style="color:#a6e22e">load&lt;/span>();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">this&lt;/span>.&lt;span style="color:#a6e22e">fire&lt;/span>();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> fire() {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// ...&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">private&lt;/span> &lt;span style="color:#a6e22e">load&lt;/span>() {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// ...&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>You can fire the blaster whenever you want.
+您可以隨時使用爆破槍開火。&lt;/p>
+&lt;p>But if you load it first, you can fire more powerful shots.
+但如果您先為其加載，則可以發射更強大的射擊。&lt;/p></description></item></channel></rss>
